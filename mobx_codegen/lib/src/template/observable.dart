@@ -58,6 +58,6 @@ ${_buildGetters()}
   set $name($type value) {
     $atomName.reportWrite(value, super.$name, () {
       super.$name = value;
-    });
+    }, this);
   }""";
 }

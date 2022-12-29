@@ -9,8 +9,7 @@ part of 'news_store.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$HackerNewsStore on _HackerNewsStore, Store {
-  late final _$latestItemsFutureAtom =
-      Atom(name: '_HackerNewsStore.latestItemsFuture', context: context);
+  late final _$latestItemsFutureAtom = Atom(name: '_HackerNewsStore.latestItemsFuture', context: c);
 
   @override
   ObservableFuture<List<FeedItem>>? get latestItemsFuture {
@@ -25,8 +24,7 @@ mixin _$HackerNewsStore on _HackerNewsStore, Store {
     });
   }
 
-  late final _$topItemsFutureAtom =
-      Atom(name: '_HackerNewsStore.topItemsFuture', context: context);
+  late final _$topItemsFutureAtom = Atom(name: '_HackerNewsStore.topItemsFuture', context: c);
 
   @override
   ObservableFuture<List<FeedItem>>? get topItemsFuture {
@@ -42,12 +40,12 @@ mixin _$HackerNewsStore on _HackerNewsStore, Store {
   }
 
   late final _$_HackerNewsStoreActionController =
-      ActionController(name: '_HackerNewsStore', context: context);
+      ActionController(name: '_HackerNewsStore', context: c);
 
   @override
   Future<dynamic> fetchLatest() {
-    final _$actionInfo = _$_HackerNewsStoreActionController.startAction(
-        name: '_HackerNewsStore.fetchLatest');
+    final _$actionInfo =
+        _$_HackerNewsStoreActionController.startAction(name: '_HackerNewsStore.fetchLatest');
     try {
       return super.fetchLatest();
     } finally {
@@ -57,8 +55,8 @@ mixin _$HackerNewsStore on _HackerNewsStore, Store {
 
   @override
   Future<dynamic> fetchTop() {
-    final _$actionInfo = _$_HackerNewsStoreActionController.startAction(
-        name: '_HackerNewsStore.fetchTop');
+    final _$actionInfo =
+        _$_HackerNewsStoreActionController.startAction(name: '_HackerNewsStore.fetchTop');
     try {
       return super.fetchTop();
     } finally {

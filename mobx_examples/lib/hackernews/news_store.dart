@@ -34,12 +34,12 @@ abstract class _HackerNewsStore with Store {
 
   // ignore: avoid_void_async
   void openUrl(String? url) async {
-    final uri = Uri.parse(url ?? '');
-    if (await canLaunchUrl(uri)) {
-      await launchUrl(uri);
-    } else {
-      // ignore: avoid_print
-      print('Could not open $url');
-    }
+    // final uri = Uri.parse(url ?? '');
+    // if (await canLaunchUrl(uri)) {
+    //   await launchUrl(uri);
+    // } else {
+    //   // ignore: avoid_print
+    //   print('Could not open $url');
+    // }
   }
 }

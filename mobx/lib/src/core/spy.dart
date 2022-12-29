@@ -41,11 +41,11 @@ abstract class SpyEvent {
 class ObservableValueSpyEvent extends SpyEvent {
   ObservableValueSpyEvent(dynamic object,
       {this.newValue, this.oldValue, required String name, bool isEnd = false})
-      : super._(object,
-            type: 'observable', name: name, isStart: true, isEnd: isEnd);
+      : super._(object, type: 'observable', name: name, isStart: true, isEnd: isEnd);
 
   final dynamic newValue;
   final dynamic oldValue;
+  dynamic changedObject;
 
   @override
   String toString() => '${super.toString()}=$newValue, previously=$oldValue';
@@ -53,8 +53,7 @@ class ObservableValueSpyEvent extends SpyEvent {
 
 class ComputedValueSpyEvent extends SpyEvent {
   ComputedValueSpyEvent(object, {required String name})
-      : super._(object,
-            type: 'computed', name: name, isStart: true, isEnd: true);
+      : super._(object, type: 'computed', name: name, isStart: true, isEnd: true);
 }
 
 class ReactionSpyEvent extends SpyEvent {
@@ -66,8 +65,7 @@ class ReactionErrorSpyEvent extends SpyEvent {
   ReactionErrorSpyEvent(
     this.error, {
     required String name,
-  }) : super._(null,
-            type: 'reaction-error', name: name, isStart: true, isEnd: true);
+  }) : super._(null, type: 'reaction-error', name: name, isStart: true, isEnd: true);
 
   final Object error;
 
@@ -78,8 +76,7 @@ class ReactionErrorSpyEvent extends SpyEvent {
 class ReactionDisposedSpyEvent extends SpyEvent {
   ReactionDisposedSpyEvent({
     required String name,
-  }) : super._(null,
-            type: 'reaction-dispose', name: name, isStart: true, isEnd: true);
+  }) : super._(null, type: 'reaction-dispose', name: name, isStart: true, isEnd: true);
 }
 
 class ActionSpyEvent extends SpyEvent {
@@ -89,8 +86,7 @@ class ActionSpyEvent extends SpyEvent {
 }
 
 class EndedSpyEvent extends SpyEvent {
-  EndedSpyEvent(
-      {required String type, required String name, Duration? duration})
+  EndedSpyEvent({required String type, required String name, Duration? duration})
       : super._(null, type: type, name: name, duration: duration, isEnd: true);
 }
 

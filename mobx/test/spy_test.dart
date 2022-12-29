@@ -10,8 +10,8 @@ void main() {
 
   group('Spy', () {
     setUp(() {
-      mainContext.config = ReactiveConfig.main
-          .clone(isSpyEnabled: true, writePolicy: ReactiveWritePolicy.never);
+      mainContext.config =
+          ReactiveConfig.main.clone(isSpyEnabled: true, writePolicy: ReactiveWritePolicy.never);
     });
 
     tearDown(() {
@@ -56,8 +56,7 @@ void main() {
         if (event is ObservableValueSpyEvent) {
           eventRaised = true;
 
-          expect(event.toString(),
-              equals('observable(START) test=1, previously=0'));
+          expect(event.toString(), equals('observable(START) test=1, previously=0'));
         }
 
         if (event is EndedSpyEvent && event.type == 'observable') {
@@ -113,8 +112,7 @@ void main() {
         if (event is EndedSpyEvent && event.type == 'action') {
           endEventRaised = true;
 
-          expect(
-              event.toString(), matches(RegExp(r'action\(END [^\)]*\) test')));
+          expect(event.toString(), matches(RegExp(r'action\(END [^\)]*\) test')));
         }
       });
 
@@ -127,8 +125,7 @@ void main() {
     });
 
     // TODO: https://github.com/mobxjs/mobx.dart/issues/734
-    test('spy-event is raised only once when an AsyncAction is executed',
-        () async {
+    test('spy-event is raised only once when an AsyncAction is executed', () async {
       var eventCount = 0;
       var endEventCount = 0;
       final d = mainContext.spy((event) {
@@ -179,8 +176,7 @@ void main() {
         if (event is EndedSpyEvent && event.type == 'reaction') {
           endEventRaised = true;
 
-          expect(event.toString(),
-              matches(RegExp(r'reaction\(END [^\)]*\) test')));
+          expect(event.toString(), matches(RegExp(r'reaction\(END [^\)]*\) test')));
         }
       });
 
@@ -254,7 +250,7 @@ void main() {
       atom.reportRead();
 
       // ignore: cascade_invocations
-      atom.reportWrite('test', null, () {});
+      //atom.reportWrite('test', null, () {});
 
       expect(eventRaised, isTrue);
 

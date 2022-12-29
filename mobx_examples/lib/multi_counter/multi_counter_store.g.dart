@@ -9,7 +9,7 @@ part of 'multi_counter_store.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$SingleCounter on _SingleCounter, Store {
-  late final _$valueAtom = Atom(name: '_SingleCounter.value', context: context);
+  late final _$valueAtom = Atom(name: '_SingleCounter.value', context: c);
 
   @override
   int get value {
@@ -25,12 +25,11 @@ mixin _$SingleCounter on _SingleCounter, Store {
   }
 
   late final _$_SingleCounterActionController =
-      ActionController(name: '_SingleCounter', context: context);
+      ActionController(name: '_SingleCounter', context: c);
 
   @override
   void reset() {
-    final _$actionInfo = _$_SingleCounterActionController.startAction(
-        name: '_SingleCounter.reset');
+    final _$actionInfo = _$_SingleCounterActionController.startAction(name: '_SingleCounter.reset');
     try {
       return super.reset();
     } finally {
@@ -40,8 +39,8 @@ mixin _$SingleCounter on _SingleCounter, Store {
 
   @override
   void increment() {
-    final _$actionInfo = _$_SingleCounterActionController.startAction(
-        name: '_SingleCounter.increment');
+    final _$actionInfo =
+        _$_SingleCounterActionController.startAction(name: '_SingleCounter.increment');
     try {
       return super.increment();
     } finally {
@@ -51,8 +50,8 @@ mixin _$SingleCounter on _SingleCounter, Store {
 
   @override
   void decrement() {
-    final _$actionInfo = _$_SingleCounterActionController.startAction(
-        name: '_SingleCounter.decrement');
+    final _$actionInfo =
+        _$_SingleCounterActionController.startAction(name: '_SingleCounter.decrement');
     try {
       return super.decrement();
     } finally {
@@ -70,12 +69,12 @@ value: ${value}
 
 mixin _$MultiCounterStore on _MultiCounterStore, Store {
   late final _$_MultiCounterStoreActionController =
-      ActionController(name: '_MultiCounterStore', context: context);
+      ActionController(name: '_MultiCounterStore', context: c);
 
   @override
   void addCounter() {
-    final _$actionInfo = _$_MultiCounterStoreActionController.startAction(
-        name: '_MultiCounterStore.addCounter');
+    final _$actionInfo =
+        _$_MultiCounterStoreActionController.startAction(name: '_MultiCounterStore.addCounter');
     try {
       return super.addCounter();
     } finally {
@@ -85,8 +84,8 @@ mixin _$MultiCounterStore on _MultiCounterStore, Store {
 
   @override
   void removeCounter(int index) {
-    final _$actionInfo = _$_MultiCounterStoreActionController.startAction(
-        name: '_MultiCounterStore.removeCounter');
+    final _$actionInfo =
+        _$_MultiCounterStoreActionController.startAction(name: '_MultiCounterStore.removeCounter');
     try {
       return super.removeCounter(index);
     } finally {

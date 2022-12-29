@@ -6,10 +6,8 @@ extension AtomSpyReporter on Atom {
     reportObserved();
   }
 
-  void reportWrite<T>(T newValue, T oldValue, void Function() setNewValue) {
-    context.spyReport(ObservableValueSpyEvent(this,
-        newValue: newValue, oldValue: oldValue, name: name));
-
+  void reportWrite<T>(T newValue, T oldValue, void Function() setNewValue,
+      [dynamic changedObject]) {
     final actionName = context.isSpyEnabled ? '${name}_set' : name;
 
     // ignore: cascade_invocations
@@ -18,6 +16,9 @@ extension AtomSpyReporter on Atom {
       reportChanged();
     }, this, name: actionName);
 
+    context.spyReport(
+        ObservableValueSpyEvent(this, newValue: newValue, oldValue: oldValue, name: name)
+          ..changedObject = changedObject);
     // ignore: cascade_invocations
     context.spyReport(EndedSpyEvent(type: 'observable', name: name));
   }

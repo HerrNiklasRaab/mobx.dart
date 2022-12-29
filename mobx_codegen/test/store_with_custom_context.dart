@@ -13,7 +13,7 @@ abstract class _CustomContextStore with Store {
   late String name;
 
   @override
-  ReactiveContext get context => customContext;
+  ReactiveContext get c => customContext;
 }
 
 void main() {

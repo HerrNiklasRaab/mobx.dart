@@ -12,13 +12,11 @@ mixin _$GithubStore on _GithubStore, Store {
   Computed<bool>? _$hasResultsComputed;
 
   @override
-  bool get hasResults =>
-      (_$hasResultsComputed ??= Computed<bool>(() => super.hasResults,
-              name: '_GithubStore.hasResults'))
-          .value;
+  bool get hasResults => (_$hasResultsComputed ??=
+          Computed<bool>(() => super.hasResults, name: '_GithubStore.hasResults'))
+      .value;
 
-  late final _$fetchReposFutureAtom =
-      Atom(name: '_GithubStore.fetchReposFuture', context: context);
+  late final _$fetchReposFutureAtom = Atom(name: '_GithubStore.fetchReposFuture', context: c);
 
   @override
   ObservableFuture<List<Repository>> get fetchReposFuture {
@@ -33,7 +31,7 @@ mixin _$GithubStore on _GithubStore, Store {
     });
   }
 
-  late final _$userAtom = Atom(name: '_GithubStore.user', context: context);
+  late final _$userAtom = Atom(name: '_GithubStore.user', context: c);
 
   @override
   String get user {
@@ -48,21 +46,18 @@ mixin _$GithubStore on _GithubStore, Store {
     });
   }
 
-  late final _$fetchReposAsyncAction =
-      AsyncAction('_GithubStore.fetchRepos', context: context);
+  late final _$fetchReposAsyncAction = AsyncAction('_GithubStore.fetchRepos', context: c);
 
   @override
   Future<List<Repository>> fetchRepos() {
     return _$fetchReposAsyncAction.run(() => super.fetchRepos());
   }
 
-  late final _$_GithubStoreActionController =
-      ActionController(name: '_GithubStore', context: context);
+  late final _$_GithubStoreActionController = ActionController(name: '_GithubStore', context: c);
 
   @override
   void setUser(String text) {
-    final _$actionInfo = _$_GithubStoreActionController.startAction(
-        name: '_GithubStore.setUser');
+    final _$actionInfo = _$_GithubStoreActionController.startAction(name: '_GithubStore.setUser');
     try {
       return super.setUser(text);
     } finally {
